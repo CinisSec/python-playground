@@ -42,7 +42,6 @@ class JishoApp(App):
 
     BINDINGS = [
         Binding("ctrl+q", "quit", "Quit"),
-        Binding("ctrl+f", "focus_search", "Search"),
     ]
 
     def compose(self) -> ComposeResult:
@@ -96,11 +95,6 @@ class JishoApp(App):
             f"[b]Part of speech:[/b] {r['pos'] or '—'}\n\n"
             f"[b]Antonyms:[/b] {r['antonyms'] or '—'}"
         )
-
-    def action_focus_search(self) -> None:
-        self.query_one("#search-bar", Input).focus()
-
-
 
 if __name__ == "__main__":
     JishoApp().run()
